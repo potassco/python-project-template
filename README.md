@@ -1,47 +1,31 @@
 # fillname
 
-FILL-DESCRIPTION
+To use the project template do the following:
+1. A global substitution of <fillname> by your project name
+2. A global substitution of <filldescription> by your project description
+3. Rename the file <fillname> using your project name
+4. Remove these instructions
+
+filldescription
 
 
 ## Installation
 
 Requires Python 3.9
 
-### Local dev mode using pip
+**Local dev mode using pip**
 
 ```shell 
 pip install -e .[dev]
 ```
 
-### Conda
+## Usage
 
-Install dependencies with [conda](https://anaconda.org) based on the [environment.yml](environment.yml) file.
-
-```shell
-conda env create -f environment.yml
+```shell 
+fillname -h
 ```
 
-```shell
-conda env create -f environment.yml
-```
-
-
-
-### Manual installation
-<!-- Install submodules
-
-```shell
-$ git submodule update --init --recursive
-``` -->
-
-<!-- Install [clingo](https://potassco.org/doc/start/) preferably using `conda`.
-We use version `5.4.0`
-
-```shell
-$ conda install -c potassco clingo
-``` -->
-
-### Tests
+## Tests
 
 Run tests using `pytest`
 
