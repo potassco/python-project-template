@@ -1,0 +1,73 @@
+name: CI Test for fillname
+
+on: [push]
+
+jobs:
+  build-linux:
+    name: Test fillname Linux
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.7"]
+    steps:
+      - name: Checkout code into workspace directory
+        uses: actions/checkout@v2
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+          environment-file: environment.yml
+          activate-environment: fillname
+      - name: Run tests
+        run: |
+          conda init bash
+          source ~/.bashrc
+          conda activate fillname
+          pytest -v ./tests/test.py
+
+  build-macos:
+    name: Test fillname Macos
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.7"]
+    steps:
+      - name: Checkout code into workspace directory
+        uses: actions/checkout@v2
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+          environment-file: environment.yml
+          activate-environment: fillname
+      - name: Run tests
+        run: |
+          conda init bash
+          source /Users/runner/.bash_profile
+          conda activate fillname
+          pytest -v ./tests/test.py
+
+  build-windows:
+    name: Test fillname Windows
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.7"]
+    steps:
+      - name: Checkout code into workspace directory
+        uses: actions/checkout@v2
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
+          environment-file: environment.yml
+          activate-environment: fillname
+      - name: Run tests
+        run: |
+          conda init bash
+          eval "$(conda shell.bash hook)"
+          conda activate fillname
+          pytest -v ./tests/test.py
