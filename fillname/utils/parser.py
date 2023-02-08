@@ -45,10 +45,7 @@ def get_parser() -> ArgumentParser:
         default="warning",
         choices=[val for _, val in levels],
         metavar=f"{{{','.join(key for key, _ in levels)}}}",
-        help=dedent(
-            """\
-            set log level [%(default)s]"""
-        ),
+        help="set log level [%(default)s]",
         type=cast(Any, lambda name: get(levels, name)),
     )
 
