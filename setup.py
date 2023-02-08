@@ -1,5 +1,6 @@
-'''
-This is provided for compatibility with other projects.
-'''
+"""
+This is provided for compatibility.
+"""
 from setuptools import setup
+
 setup()
