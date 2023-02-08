@@ -29,4 +29,6 @@ class TestMain(TestCase):
         """
         Test the parser.
         """
-        self.assertIsNotNone(get_parser())
+        parser = get_parser()
+        ret = parser.parse_args(["--log", "info"])
+        self.assertEqual(ret.log, logging.INFO)

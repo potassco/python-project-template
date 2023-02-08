@@ -21,29 +21,35 @@ def get_parser() -> ArgumentParser:
     parser = ArgumentParser(
         description=dedent(
             """\
-        fillname
-        filldescription
-        """
+            fillname
+            filldescription
+            """
         )
     )
 
-    levels = {
-        "error": logging.ERROR,
-        "warning": logging.WARNING,
-        "info": logging.INFO,
-        "debug": logging.DEBUG,
-    }
+    levels = [
+        ("error", logging.ERROR),
+        ("warning", logging.WARNING),
+        ("info", logging.INFO),
+        ("debug", logging.DEBUG),
+    ]
+
+    def get(levels, name):
+        for key, val in levels:
+            if key == name:
+                return val
+        return None  # nocoverage
 
     parser.add_argument(
         "--log",
         default="warning",
-        choices=levels.values(),
-        metavar=f"{{{','.join(levels.keys())}}}",
+        choices=[val for _, val in levels],
+        metavar=f"{{{','.join(key for key, _ in levels)}}}",
         help=dedent(
             """\
-                set log level [%(default)s]"""
+            set log level [%(default)s]"""
         ),
-        type=cast(Any, levels.get),
+        type=cast(Any, lambda name: get(levels, name)),
     )
 
     parser.add_argument(
