@@ -26,8 +26,8 @@ def main():
     Rename the project.
     """
     project = read("project name: ", r"^[a-z][a-z0-9_]*$")
-    author = read("author: ", r".*")
-    email = read("email: ", r".*")
+    author = read("author: ", r".+")
+    email = read("email: ", r".+")
 
     replacements = {
         "fillname": project,
