@@ -42,9 +42,15 @@ def format(session):
 
 @nox.session
 def doc(session):
+    target = "html"
+    options = []
+    if session.posargs:
+        target = session.posargs[0]
+        options = session.posargs[1:]
+
     session.install("-e", ".[doc]")
     session.cd("doc")
-    session.run("sphinx-build", "-M", "html", ".", "_build ")
+    session.run("sphinx-build", "-M", target, ".", "_build", *options)
 
 
 @nox.session
