@@ -41,6 +41,13 @@ def format(session):
 
 
 @nox.session
+def doc(session):
+    session.install("-e", ".[doc]")
+    session.cd("doc")
+    session.run("sphinx-build", "-M", "html", ".", "_build ")
+
+
+@nox.session
 def lint_flake8(session):
     session.install("-e", ".[lint_flake8]")
     session.run("flake8", "fillname", "tests")
