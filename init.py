@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Init script to rename project.
 """
@@ -50,7 +51,7 @@ def main():
                 filepath = os.path.join(dirpath, filename)
                 replace(filepath)
 
-    for filepath in ["setup.cfg", "noxfile.py", "README.md"]:
+    for filepath in ["setup.cfg", "noxfile.py", "README.md", "doc/index.rst"]:
         replace(filepath)
 
     os.rename("fillname", project)
