@@ -31,12 +31,13 @@ python -m pipx install nox
 nox
 ```
 
-Note that `nox -r` can be used to speed up subsequent runs. It avoids
-recreating virtual environments. For example, to run the unit tests without
-recreating the corresponding environment each time, you can use
+Note that `nox --no-install -r` can be used to speed up subsequent runs. It
+avoids recreating virtual environments. For example, to run the unit tests
+without recreating the corresponding environment and installing packages each
+time, you can use
 
 ```bash
-nox -rs test
+nox --no-install -rs test
 ```
 
 Furthermore, we auto format code using [black]. We provide a [pre-commit][pre]
