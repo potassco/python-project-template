@@ -51,7 +51,13 @@ def main():
                 filepath = os.path.join(dirpath, filename)
                 replace(filepath)
 
-    for filepath in ["setup.cfg", "noxfile.py", "README.md", "doc/index.rst"]:
+    for filepath in [
+        "setup.cfg",
+        "noxfile.py",
+        "README.md",
+        "doc/index.rst",
+        ".pre-commit-config.yaml",
+    ]:
         replace(filepath)
 
     os.rename("fillname", project)
