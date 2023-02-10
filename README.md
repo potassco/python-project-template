@@ -1,40 +1,66 @@
 # fillname
 
-filldescription
+This project template is configured to ease collaboration. Linters, formatters,
+and actions are already configured and ready to use.
 
-
-To use the project template do the following:
-1. Rename the folder *fillname* using your project name
-2. A global substitution of *fillname* by your project name
-3. A global substitution of *filldescription* by your project description
-4. The clingo API will be part of the requirements. Check the version you want to use on [`setup.cfg`](setup.cfg).
-5. Check the version you want to use for python and update the README Installation section bellow. Also update the [CI](.github/workflows/ci-test.yml) to run tests only in this version.
-6. The main function that will be called with `fillname` is in [`fillname/__init__.py`](.fillname/__init__.py). It includes a `logger` and `argparse` which are imported from the [utils folder](fillname\utils), if not needed can be removed.
-7. A test folder is included to promote unit-testing. Tests will be called using `pytest` by the github CI.
-8. All set! Now you have CI ***Remove these instructions***
+To use the project template, run the `init.py` script to give the project a
+name and some metadata. The script can then be removed afterward and the
+`setup.cfg` file adjusted.
 
 ## Installation
 
-Requires Python 3.9
-
-**Local dev mode using pip**
-
-```shell 
-pip install -e .[dev]
+```shell
+pip install fillname
 ```
 
 ## Usage
 
-```shell 
+```shell
 fillname -h
 ```
 
-## Tests
+## Development
 
-Run tests using `pytest`
+To improve code quality, we run linters, type checkers, and unit tests. The
+tools can be run using [nox]. We recommend installing nox using [pipx] to have
+it available globally:
 
-```shell
-$ pytest -v tests/test.py
+```bash
+python -m pip install pipx
+python -m pipx install nox
+nox
 ```
 
-Add flag `-s` to show print statements in the code
+Note that `nox --no-install -r` can be used to speed up subsequent runs. It
+avoids recreating virtual environments. For example, to run the unit tests
+without recreating the corresponding environment and installing packages each
+time, you can use
+
+```bash
+nox --no-install -rs test
+```
+
+Furthermore, we auto format code using [black]. We provide a [pre-commit][pre]
+config to automate this process. It can be set up using the following commands:
+
+```bash
+python -m pipx install pre-commit
+pre-commit install
+```
+
+This blackens the source code whenever `git commit` is used.
+
+There is also a format session for nox. It can be run as follows:
+
+```bash
+nox -rs format
+nox -rs format -- check
+```
+
+The latter command can be used to inspect changes before applying them.
+
+[doc]: https://potassco.org/clingo/python-api/current/
+[nox]: https://nox.thea.codes/en/stable/index.html
+[pipx]: https://pypa.github.io/pipx/
+[pre]: https://pre-commit.com/
+[black]: https://black.readthedocs.io/en/stable/
