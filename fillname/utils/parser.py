@@ -7,11 +7,14 @@ from argparse import ArgumentParser
 from textwrap import dedent
 from typing import Any, cast
 
-from pkg_resources import require
+from pkg_resources import DistributionNotFound, require
 
 __all__ = ["get_parser"]
 
-VERSION = require("fillname")[0].version
+try:
+    VERSION = require("fillname")[0].version
+except DistributionNotFound:  # nocoverage
+    VERSION = "local"  # nocoverage
 
 
 def get_parser() -> ArgumentParser:
@@ -19,12 +22,13 @@ def get_parser() -> ArgumentParser:
     Return the parser for command line options.
     """
     parser = ArgumentParser(
+        prog="fillname",
         description=dedent(
             """\
             fillname
             filldescription
             """
-        )
+        ),
     )
 
     levels = [
