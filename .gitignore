@@ -29,6 +29,7 @@ dmypy.json
 *egg-info*
 
 # unclassified
+dist
 build
 .coverage
 _build
