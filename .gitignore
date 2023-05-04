@@ -22,8 +22,8 @@ pip-delete-this-directory.txt
 # pyenv
 .python-version
 
-# venv
-.venv
+# dev venv
+.dev
 
 # mypy
 .mypy_cache/
