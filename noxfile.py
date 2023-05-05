@@ -71,8 +71,13 @@ def typecheck(session):
     session.run("mypy", "-p", "fillname", "-p", "tests")
 
 
-@nox.session(python=PYTHON_VERSIONS)
+@nox.session(python=PYTHON_VERSIONS, reuse_venv=False)
 def test(session):
-    session.install("-e", ".[test]")
+    session.install(".[test]")
     session.run("coverage", "run", "-m", "unittest", "discover", "-v")
     session.run("coverage", "report", "-m", "--fail-under=100")
+
+
+@nox.session
+def dev(session):
+    session.install("-e", ".[dev]")

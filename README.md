@@ -31,17 +31,44 @@ python -m pipx install nox
 nox
 ```
 
-Note that `nox --no-install -r` can be used to speed up subsequent runs. It
-avoids recreating virtual environments. For example, to run the unit tests
-without recreating the corresponding environment and installing packages each
-time, you can use
+You can invoke `nox -s` to run individual sessions. For example, to
+install your package into a virtual environment and run your test
+suite, invoke:
 
 ```bash
-nox --no-install -rs test
+nox -s test
 ```
 
-Furthermore, we auto format code using [black]. We provide a [pre-commit][pre]
-config to automate this process. It can be set up using the following commands:
+We provide a nox session that creates a development virtual
+environment containing [editable install][editable] of your package,
+along with linting, type checking and formatting packages. Activating
+this environment allows your editor of choice to access these packages
+for e.g. automatic linting and autocompletion. Due to the editable
+install, changes made to your python source code are immediately
+reflected in the activated virtual environment without requiring a
+re-installation. To create and then activate virtual environment run:
+
+```bash
+nox -s dev
+source .nox/dev/bin/activate
+```
+
+We also provide individual sessions to easily run linting, type
+checking and formatting via nox. These also create editable installs,
+so you can safely skip the re-creation of the virtual environment and
+re-installation of your package in subsequent runs by passing the `-R`
+command line argument. For example, to auto-format your code using
+[black], run:
+
+```bash
+nox -Rs format -- check
+nox -Rs format
+```
+
+The former command allows you to inspect changes before applying them.
+
+We also provide a [pre-commit][pre] config to automate this
+process. It can be set up using the following commands:
 
 ```bash
 python -m pipx install pre-commit
@@ -50,17 +77,16 @@ pre-commit install
 
 This blackens the source code whenever `git commit` is used.
 
-There is also a format session for nox. It can be run as follows:
-
-```bash
-nox -rs format
-nox -rs format -- check
-```
-
-The latter command can be used to inspect changes before applying them.
+**Note**: The test session does *not* use an editable install, and
+therefore should not be run using the `-R` option. We do not use an
+editable install when testing as end users will be using a regular
+install, and there are some [subtle differences][editlimit] between
+the two.
 
 [doc]: https://potassco.org/clingo/python-api/current/
 [nox]: https://nox.thea.codes/en/stable/index.html
 [pipx]: https://pypa.github.io/pipx/
 [pre]: https://pre-commit.com/
 [black]: https://black.readthedocs.io/en/stable/
+[editable]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html
+[editlimit]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html#limitations
