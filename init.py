@@ -43,7 +43,7 @@ def main():
         with open(filepath, "w", encoding="utf-8") as hnd:
             hnd.write(content)
 
-    for rootpath in ["fillname", "tests"]:
+    for rootpath in ["src/fillname", "tests"]:
         for dirpath, _, filenames in os.walk(rootpath):
             for filename in filenames:
                 if not filename.endswith(".py"):
@@ -60,7 +60,7 @@ def main():
     ]:
         replace(filepath)
 
-    os.rename("fillname", project)
+    os.rename("fillname", "src/" + project)
 
 
 if __name__ == "__main__":
