@@ -11,14 +11,11 @@ from typing import Any, cast
 __all__ = ["get_parser"]
 
 if sys.version_info[1] < 8:
-    import importlib_metadata as metadata
+    import importlib_metadata as metadata  # nocoverage
 else:
-    from importlib import metadata
+    from importlib import metadata  # nocoverage
 
-try:
-    VERSION = metadata.version("fillname")
-except metadata.PackageNotFoundError:  # nocoverage
-    VERSION = "local"  # nocoverage
+VERSION = metadata.version("fillname")
 
 
 def get_parser() -> ArgumentParser:
