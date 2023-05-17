@@ -4,9 +4,11 @@ import nox
 
 nox.options.sessions = "lint_flake8", "lint_pylint", "typecheck", "test"
 
+EDITABLE_TESTS = True
 PYTHON_VERSIONS = None
 if "GITHUB_ACTIONS" in os.environ:
     PYTHON_VERSIONS = ["3.7", "3.11"]
+    EDITABLE_TESTS = False
 
 
 @nox.session
@@ -71,9 +73,12 @@ def typecheck(session):
     session.run("mypy", "-p", "fillname", "-p", "tests")
 
 
-@nox.session(python=PYTHON_VERSIONS, reuse_venv=False)
+@nox.session(python=PYTHON_VERSIONS)
 def test(session):
-    session.install(".[test]")
+    args = ['.[test]']
+    if EDITABLE_TESTS:
+        args.insert(0, '-e')
+    session.install(*args)
     session.run("coverage", "run", "-m", "unittest", "discover", "-v")
     session.run("coverage", "report", "-m", "--fail-under=100")
 
