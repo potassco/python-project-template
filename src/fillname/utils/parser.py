@@ -3,17 +3,21 @@ The command line parser for the project.
 """
 
 import logging
+import sys
 from argparse import ArgumentParser
 from textwrap import dedent
 from typing import Any, cast
 
-from pkg_resources import DistributionNotFound, require
-
 __all__ = ["get_parser"]
 
+if sys.version_info[1] < 8:
+    import importlib_metadata as metadata
+else:
+    from importlib import metadata
+
 try:
-    VERSION = require("fillname")[0].version
-except DistributionNotFound:  # nocoverage
+    VERSION = metadata.version("fillname")
+except metadata.PackageNotFoundError:  # nocoverage
     VERSION = "local"  # nocoverage
 
 
