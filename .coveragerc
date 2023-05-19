@@ -1,6 +1,6 @@
 [run]
 source = fillname
-omit = src/fillname/__main__.py
+omit = */fillname/__main__.py
 [report]
 exclude_lines =
     assert
