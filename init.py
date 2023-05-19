@@ -57,6 +57,7 @@ def main():
         "README.md",
         "doc/index.rst",
         ".pre-commit-config.yaml",
+        ".coveragerc",
     ]:
         replace(filepath)
 
