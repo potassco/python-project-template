@@ -61,7 +61,7 @@ def main():
     ]:
         replace(filepath)
 
-    os.rename("fillname", os.path.join("src", project))
+    os.rename(os.path.join("src", "fillname"), os.path.join("src", project))
 
 
 if __name__ == "__main__":
