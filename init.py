@@ -43,7 +43,7 @@ def main():
         with open(filepath, "w", encoding="utf-8") as hnd:
             hnd.write(content)
 
-    for rootpath in ["fillname", "tests"]:
+    for rootpath in [os.path.join("src", "fillname"), "tests"]:
         for dirpath, _, filenames in os.walk(rootpath):
             for filename in filenames:
                 if not filename.endswith(".py"):
@@ -57,10 +57,11 @@ def main():
         "README.md",
         "doc/index.rst",
         ".pre-commit-config.yaml",
+        ".coveragerc",
     ]:
         replace(filepath)
 
-    os.rename("fillname", project)
+    os.rename(os.path.join("src", "fillname"), os.path.join("src", project))
 
 
 if __name__ == "__main__":

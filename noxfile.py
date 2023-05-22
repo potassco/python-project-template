@@ -4,9 +4,11 @@ import nox
 
 nox.options.sessions = "lint_flake8", "lint_pylint", "typecheck", "test"
 
+EDITABLE_TESTS = True
 PYTHON_VERSIONS = None
 if "GITHUB_ACTIONS" in os.environ:
     PYTHON_VERSIONS = ["3.7", "3.11"]
+    EDITABLE_TESTS = False
 
 
 @nox.session
@@ -20,20 +22,20 @@ def format(session):
         "--ignore-init-module-imports",
         "--remove-unused-variables",
         "-r",
-        "fillname",
+        "src",
         "tests",
     ]
     if check:
         autoflake_args.remove("--in-place")
     session.run("autoflake", *autoflake_args)
 
-    isort_args = ["--profile", "black", "fillname", "tests"]
+    isort_args = ["--profile", "black", "src", "tests"]
     if check:
         isort_args.insert(0, "--check")
         isort_args.insert(1, "--diff")
     session.run("isort", *isort_args)
 
-    black_args = ["fillname", "tests"]
+    black_args = ["src", "tests"]
     if check:
         black_args.insert(0, "--check")
         black_args.insert(1, "--diff")
@@ -56,7 +58,7 @@ def doc(session):
 @nox.session
 def lint_flake8(session):
     session.install("-e", ".[lint_flake8]")
-    session.run("flake8", "fillname", "tests")
+    session.run("flake8", "src", "tests")
 
 
 @nox.session
@@ -73,6 +75,14 @@ def typecheck(session):
 
 @nox.session(python=PYTHON_VERSIONS)
 def test(session):
-    session.install("-e", ".[test]")
+    args = ['.[test]']
+    if EDITABLE_TESTS:
+        args.insert(0, '-e')
+    session.install(*args)
     session.run("coverage", "run", "-m", "unittest", "discover", "-v")
     session.run("coverage", "report", "-m", "--fail-under=100")
+
+
+@nox.session
+def dev(session):
+    session.install("-e", ".[dev]")

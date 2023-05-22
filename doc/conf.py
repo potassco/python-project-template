@@ -8,15 +8,10 @@
 
 import configparser
 import datetime
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
 import os
-import sys
 
-sys.path.insert(0, os.path.abspath(".."))
+# modules that autodock should mock
+# useful if some external dependencies are not satisfied at doc build time.
 autodoc_mock_imports = []
 
 # -- Project information -----------------------------------------------------
@@ -36,7 +31,10 @@ release = _meta["version"]
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
+# ones. Make sure that custom extensions are listed in the doc field of
+# [options.extras_require] in setup.cfg so they are available when building
+# the documentation.
+
 extensions = [
     "nbsphinx",
     "sphinx_rtd_theme",

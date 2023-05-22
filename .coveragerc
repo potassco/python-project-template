@@ -1,4 +1,7 @@
 [run]
+source = fillname
+       tests
+omit = */fillname/__main__.py
 [report]
 exclude_lines =
     assert

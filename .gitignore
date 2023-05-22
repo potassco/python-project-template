@@ -1,5 +1,8 @@
 # Editors
 .vscode/
+*~
+\#*\#
+.\#*
 
 # Mac/OSX
 .DS_Store
@@ -26,6 +29,7 @@ dmypy.json
 *egg-info*
 
 # unclassified
+dist
 build
 .coverage
 _build
