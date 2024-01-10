@@ -1,6 +1,6 @@
 # Quick start
 
-A simple explanation on how to use the system
+A simple explanation on how to use the system.
 
 ```shell
 fillname -h
@@ -8,5 +8,5 @@ fillname -h
 
 ```{tip} 
 
-Tips on how to use the system
+Tips on how to use the system.
 ```

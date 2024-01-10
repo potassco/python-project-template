@@ -11,7 +11,6 @@ import datetime
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('.'))
 # modules that autodock should mock
 # useful if some external dependencies are not satisfied at doc build time.
@@ -39,7 +38,6 @@ release = _meta["version"]
 # the documentation.
 
 extensions = [
-    # "nbsphinx",
     'furo.sphinxext', # Theme
     "sphinx.ext.extlinks",
     "sphinx.ext.mathjax",
@@ -52,7 +50,6 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx_copybutton",
     "myst_parser",
-    # "myst-parser"  # To write markdown documentation
 ]
 
 autosummary_generate = True

@@ -7,5 +7,4 @@ An example project template.
 content/installation.md
 content/quickstart.md
 content/encodings/index.md
-content/api.md
 ```

@@ -14,7 +14,7 @@ if "GITHUB_ACTIONS" in os.environ:
 @nox.session
 def format(session):
     """
-    Formats the files to remove errors
+    Autoformat source files. -- check: Inspect changes.
     """
     session.install("-e", ".[format]")
     check = "check" in session.posargs
@@ -48,24 +48,39 @@ def format(session):
 @nox.session
 def doc(session):
     """
-    Builds and opens the documentation
+    Build and open the documentation. -- open: Open after build, clean: Clean built files.
     """
     target = "html"
     options = []
+    open = "open" in session.posargs
+    clean = "clean" in session.posargs
+    
+    session.posargs.remove("open") if open else None
+    session.posargs.remove("clean") if clean else None
+
     if session.posargs:
         target = session.posargs[0]
         options = session.posargs[1:]
-
+    
     session.install("-e", ".[doc]")
     session.cd("doc")
+    if clean:
+        session.run("rm", "-rf", "_build")
     session.run("sphinx-build", "-M", target, ".", "_build", *options)
-    session.run("open", "_build/html/index.html")
+    if open:
+        session.run("open", "_build/html/index.html")
 
+@nox.session
+def dev(session):
+    """
+    Create a development environment in editable mode. Activate it by running `source .nox/dev/bin/activate`.
+    """
+    session.install("-e", ".[dev]")
 
 @nox.session
 def lint_flake8(session):
     """
-    Runs flake8 linter
+    Run flake8 linter.
     """
     session.install("-e", ".[lint_flake8]")
     session.run("flake8", "src", "tests")
@@ -74,7 +89,7 @@ def lint_flake8(session):
 @nox.session
 def lint_pylint(session):
     """
-    Runs pylint
+    Run pylint.
     """
     session.install("-e", ".[lint_pylint]")
     session.run("pylint", "fillname", "tests")
@@ -83,7 +98,7 @@ def lint_pylint(session):
 @nox.session
 def typecheck(session):
     """
-    Typechecks the code using mypy
+    Typecheck the code using mypy.
     """
     session.install("-e", ".[typecheck]")
     session.run("mypy", "-p", "fillname", "-p", "tests")
@@ -92,19 +107,16 @@ def typecheck(session):
 @nox.session(python=PYTHON_VERSIONS)
 def test(session):
     """
-    Runs the tests
+    Run the tests. -- test_path: Test to be ran e.g. tests.test_main.TestMain.test_logger
     """
+
     args = ['.[test]']
     if EDITABLE_TESTS:
         args.insert(0, '-e')
     session.install(*args)
-    session.run("coverage", "run", "-m", "unittest", "discover", "-v")
-    session.run("coverage", "report", "-m", "--fail-under=100")
+    if session.posargs:
+        session.run("coverage", "run", "-m", "unittest", session.posargs[0], "-v")
+    else:
+        session.run("coverage", "run", "-m", "unittest", "discover", "-v")
+        session.run("coverage", "report", "-m", "--fail-under=100")
 
-
-@nox.session
-def dev(session):
-    """
-    Creates a development environment
-    """
-    session.install("-e", ".[dev]")

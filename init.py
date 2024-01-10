@@ -43,7 +43,13 @@ def main():
         with open(filepath, "w", encoding="utf-8") as hnd:
             hnd.write(content)
 
-    for rootpath in [os.path.join("src", "fillname"), "tests"]:
+    files_to_replace = ["LICENSE"]
+    directories_to_replace = [os.path.join("src", "fillname"), "tests", "doc"]
+    for filename in files_to_replace:
+        filepath = os.path.join(filename)
+        replace(filepath)
+
+    for rootpath in directories_to_replace:
         for dirpath, _, filenames in os.walk(rootpath):
             for filename in filenames:
                 if not filename.endswith(".py"):

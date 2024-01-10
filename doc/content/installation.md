@@ -1,8 +1,8 @@
 # Installation
 
-fillname requires a Python version between 3.8 and 3.10 (recomend 3.10)
+fillname requires Python 3.8+. We recommend version 3.10.
 
-You can check a successfull instalaltion by running
+You can check a successful installation by running
 
 ```shell
 fillname -h

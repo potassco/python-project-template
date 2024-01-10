@@ -1,16 +1,16 @@
 div.admonition.example {
-border-color: hsl(257, 20%, 50%);
-background-color: hsl(257, 20%, 80%);
+  border-color: hsl(257, 20%, 50%);
+  background-color: hsl(257, 20%, 80%);
 }
 
 div.admonition.example > .admonition-title {
-color: white;
-background-color: hsl(257, 20%, 50%);
+  color: white;
+  background-color: hsl(257, 20%, 50%);
 }
 
 div.admonition.example > .admonition-title::before {
-    content: "\f2a7";
-  }
+  content: "\f2a7";
+}
 
 .sidebar-logo {
   margin: inherit;
@@ -24,7 +24,6 @@ div.admonition.example > .admonition-title::before {
 }
 .sidebar-brand-text {
   text-align: center !important;
-  /* color: #004C6E !important; */
   align-items: center;
   display: inline-flex;
 }
