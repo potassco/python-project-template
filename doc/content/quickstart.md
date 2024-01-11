@@ -6,7 +6,7 @@ A simple explanation on how to use the system.
 fillname -h
 ```
 
-```{tip} 
+```{tip}
 
 Tips on how to use the system.
 ```

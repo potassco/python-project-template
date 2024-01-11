@@ -11,7 +11,7 @@ import datetime
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath("."))
 # modules that autodock should mock
 # useful if some external dependencies are not satisfied at doc build time.
 autodoc_mock_imports = []
@@ -38,15 +38,15 @@ release = _meta["version"]
 # the documentation.
 
 extensions = [
-    'furo.sphinxext', # Theme
+    "furo.sphinxext",  # Theme
     "sphinx.ext.extlinks",
     "sphinx.ext.mathjax",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.autosectionlabel',
-    'sphinx.ext.intersphinx',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.autosummary",
     "sphinx_copybutton",
     "myst_parser",
@@ -110,12 +110,12 @@ myst_heading_anchors = 3
 
 # -- Custom css
 html_css_files = [
-    'css/custom.css',
+    "css/custom.css",
 ]
 
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
-add_module_names = False #Class names without full module path
+add_module_names = False  # Class names without full module path
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

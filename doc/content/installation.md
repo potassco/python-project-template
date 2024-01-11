@@ -8,7 +8,7 @@ You can check a successful installation by running
 fillname -h
 ```
 
-## Installing with pip 
+## Installing with pip
 
 
 The python fillname package can be found [here](https://pypi.org/project/fillname/).

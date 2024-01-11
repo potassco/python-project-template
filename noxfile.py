@@ -1,4 +1,5 @@
 import os
+
 import nox
 
 nox.options.sessions = "lint_flake8", "lint_pylint", "typecheck", "test"
@@ -125,9 +126,9 @@ def test(session):
     This can for example be used to selectively run test cases.
     """
 
-    args = ['.[test]']
+    args = [".[test]"]
     if EDITABLE_TESTS:
-        args.insert(0, '-e')
+        args.insert(0, "-e")
     session.install(*args)
     if session.posargs:
         session.run("coverage", "run", "-m", "unittest", session.posargs[0], "-v")

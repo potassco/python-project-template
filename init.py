@@ -44,7 +44,14 @@ def main():
             hnd.write(content)
 
     dirs = [os.path.join("src", "fillname"), "tests", "doc"]
-    files = ["setup.cfg", "noxfile.py", "README.md", "LICENSE", ".pre-commit-config.yaml", ".coveragerc"]
+    files = [
+        "setup.cfg",
+        "noxfile.py",
+        "README.md",
+        "LICENSE",
+        ".pre-commit-config.yaml",
+        ".coveragerc",
+    ]
 
     for rootpath in dirs:
         for dirpath, _, filenames in os.walk(rootpath):
