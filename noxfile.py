@@ -1,5 +1,4 @@
 import os
-
 import nox
 
 nox.options.sessions = "lint_flake8", "lint_pylint", "typecheck", "test"
@@ -14,7 +13,9 @@ if "GITHUB_ACTIONS" in os.environ:
 @nox.session
 def format(session):
     """
-    Autoformat source files. -- check: Inspect changes.
+    Autoformat source files.
+
+    If argument check is given, only reports changes.
     """
     session.install("-e", ".[format]")
     check = "check" in session.posargs
@@ -48,34 +49,45 @@ def format(session):
 @nox.session
 def doc(session):
     """
-    Build and open the documentation. -- open: Open after build, clean: Clean built files.
+    Build the documentation.
+
+    Accepts the following arguments:
+    - open: open documentation after build
+    - clean: clean up the build folder
+    - <target> <options>: build the given <target> with the given <options>
     """
     target = "html"
     options = []
-    open = "open" in session.posargs
+    open_doc = "open" in session.posargs
     clean = "clean" in session.posargs
-    
-    session.posargs.remove("open") if open else None
-    session.posargs.remove("clean") if clean else None
+
+    if open_doc:
+        session.posargs.remove("open")
+    if clean:
+        session.posargs.remove("clean")
 
     if session.posargs:
         target = session.posargs[0]
         options = session.posargs[1:]
-    
+
     session.install("-e", ".[doc]")
     session.cd("doc")
     if clean:
         session.run("rm", "-rf", "_build")
     session.run("sphinx-build", "-M", target, ".", "_build", *options)
-    if open:
+    if open_doc:
         session.run("open", "_build/html/index.html")
+
 
 @nox.session
 def dev(session):
     """
-    Create a development environment in editable mode. Activate it by running `source .nox/dev/bin/activate`.
+    Create a development environment in editable mode.
+
+    Activate it by running `source .nox/dev/bin/activate`.
     """
     session.install("-e", ".[dev]")
+
 
 @nox.session
 def lint_flake8(session):
@@ -107,7 +119,10 @@ def typecheck(session):
 @nox.session(python=PYTHON_VERSIONS)
 def test(session):
     """
-    Run the tests. -- test_path: Test to be ran e.g. tests.test_main.TestMain.test_logger
+    Run the tests.
+
+    Accepts an additional arguments which are passed to the unittest module.
+    This can for example be used to selectively run test cases.
     """
 
     args = ['.[test]']
@@ -119,4 +134,3 @@ def test(session):
     else:
         session.run("coverage", "run", "-m", "unittest", "discover", "-v")
         session.run("coverage", "report", "-m", "--fail-under=100")
-
