@@ -43,22 +43,25 @@ def main():
         with open(filepath, "w", encoding="utf-8") as hnd:
             hnd.write(content)
 
-    for rootpath in [os.path.join("src", "fillname"), "tests"]:
+    dirs = [os.path.join("src", "fillname"), "tests", "doc"]
+    files = [
+        "setup.cfg",
+        "noxfile.py",
+        "README.md",
+        "LICENSE",
+        ".pre-commit-config.yaml",
+        ".coveragerc",
+    ]
+
+    for rootpath in dirs:
         for dirpath, _, filenames in os.walk(rootpath):
             for filename in filenames:
-                if not filename.endswith(".py"):
+                if not filename.endswith(".py") and not filename.endswith(".md"):
                     continue
                 filepath = os.path.join(dirpath, filename)
                 replace(filepath)
 
-    for filepath in [
-        "setup.cfg",
-        "noxfile.py",
-        "README.md",
-        "doc/index.rst",
-        ".pre-commit-config.yaml",
-        ".coveragerc",
-    ]:
+    for filepath in files:
         replace(filepath)
 
     os.rename(os.path.join("src", "fillname"), os.path.join("src", project))
