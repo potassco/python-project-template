@@ -29,7 +29,7 @@ We recommend this only for development purposes.
 ```
 
 ```{note}
-The pip package `setuptools` must be previously installed
+The `setuptools` package is required to run the commands below.
 ```
 
 Execute the following command in the top level fillname directory:

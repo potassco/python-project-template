@@ -45,7 +45,7 @@ nox -s session_name
 nox -Rs session_name
 ```
 
-Note that the nox sessions create editable installs. In case there are issues,
+Note that the nox sessions create [editable] installs. In case there are issues,
 try recreating environments by dropping the `-R` option. If your project is
 incompatible with editable installs, adjust the `noxfile.py` to disable them.
 
@@ -57,9 +57,7 @@ python -m pipx install pre-commit
 pre-commit install
 ```
 
-[doc]: https://potassco.org/clingo/python-api/current/
 [nox]: https://nox.thea.codes/en/stable/index.html
 [pipx]: https://pypa.github.io/pipx/
 [pre]: https://pre-commit.com/
-[black]: https://black.readthedocs.io/en/stable/
 [editable]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html

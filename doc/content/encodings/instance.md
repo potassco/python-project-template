@@ -8,7 +8,7 @@
 * - Name
   - Description
 * - `horizon`
-  - The description of a constant
+  - The description of a constant.
 ```
 
 ## Predicates
