@@ -1,6 +1,7 @@
 """
 Test cases for main application functionality.
 """
+
 import logging
 from io import StringIO
 from unittest import TestCase

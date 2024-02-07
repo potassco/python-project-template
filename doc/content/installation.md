@@ -4,8 +4,8 @@ fillname requires Python 3.8+. We recommend version 3.10.
 
 You can check a successful installation by running
 
-```shell
-fillname -h
+```console
+$ fillname -h
 ```
 
 ## Installing with pip
@@ -13,8 +13,8 @@ fillname -h
 
 The python fillname package can be found [here](https://pypi.org/project/fillname/).
 
-```shell
-pip install fillname
+```console
+$ pip install fillname
 ```
 
 ## Development
@@ -34,8 +34,8 @@ The `setuptools` package is required to run the commands below.
 
 Execute the following command in the top level fillname directory:
 
-```shell
-git clone https://github.com/potassco/fillname
-cd fillname
-pip install -e .[all]
+```console
+$ git clone https://github.com/potassco/fillname
+$ cd fillname
+$ pip install -e .[all]
 ```
