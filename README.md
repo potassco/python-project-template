@@ -11,13 +11,13 @@
 
 ## Installation
 
-```shell
+```bash
 pip install .
 ```
 
 ## Usage
 
-```shell
+```bash
 fillname -h
 ```
 

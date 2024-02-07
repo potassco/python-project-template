@@ -2,8 +2,8 @@
 
 A simple explanation on how to use the system.
 
-```shell
-fillname -h
+```console
+$ fillname -h
 ```
 
 ```{tip}
