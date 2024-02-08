@@ -48,6 +48,7 @@ def main():
         "setup.cfg",
         "noxfile.py",
         "README.md",
+        "DEVELOPMENT.md",
         "LICENSE",
         ".pre-commit-config.yaml",
         ".coveragerc",
