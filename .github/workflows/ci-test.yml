@@ -1,6 +1,11 @@
 name: Run CI tests
 
 on:
+  # Creates a reusable workflow
+  workflow_call:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Runs the workflow when adding to the main branch
   push:
     branches:
       - main

@@ -1,0 +1,25 @@
+name: Publish to Pypi
+
+on:
+  on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  build:
+    uses: ./.github/workflows/buildwheel.yml
+  pypi-publish:
+    name: Publish to PyPI
+    needs: [build]
+    permissions:
+      id-token: write
+    environment: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: wheel
+          path: dist
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
