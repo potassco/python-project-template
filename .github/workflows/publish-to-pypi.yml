@@ -1,7 +1,6 @@
 name: Publish to Pypi
 
 on:
-  on:
   push:
     tags:
       - v*.*.*
