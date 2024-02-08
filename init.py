@@ -48,9 +48,9 @@ def main():
         "setup.cfg",
         "noxfile.py",
         "README.md",
+        "pyproject.toml",
         "LICENSE",
         ".pre-commit-config.yaml",
-        ".coveragerc",
     ]
 
     for rootpath in dirs:
