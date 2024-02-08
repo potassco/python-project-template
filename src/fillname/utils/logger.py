@@ -46,9 +46,7 @@ def setup_logger(name, level):
         handler = logging.StreamHandler(sys.stderr)
         handler.addFilter(SingleLevelFilter(level, False))
         handler.setLevel(level)
-        formatter = logging.Formatter(
-            log_message_str.format(COLORS[color], COLORS["GREY"], COLORS["NORMAL"])
-        )
+        formatter = logging.Formatter(log_message_str.format(COLORS[color], COLORS["GREY"], COLORS["NORMAL"]))
         handler.setFormatter(formatter)
         logger.addHandler(handler)
 
