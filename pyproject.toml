@@ -12,9 +12,6 @@ line_length = 120
 [tool.black]
 line-length = 120
 
-[tool.ruff]
-line-length = 120
-
 [tool.pylint.format]
 max-line-length = 120
 
@@ -39,7 +36,7 @@ ignore-signatures = true
 [tool.pylint.basic]
 argument-rgx = "^[a-z][a-z0-9]*((_[a-z0-9]+)*_?)?$"
 variable-rgx = "^[a-z][a-z0-9]*((_[a-z0-9]+)*_?)?$"
-good-names = ["_", "M", "N", "B", "A", "Nn", "Bn", "An"]
+good-names = ["_"]
 
 [tool.coverage.run]
 source = ["fillname", "tests"]

@@ -2,7 +2,7 @@ import os
 
 import nox
 
-nox.options.sessions = "lint_flake8", "lint_pylint", "typecheck", "test"
+nox.options.sessions = "lint_pylint", "typecheck", "test"
 
 EDITABLE_TESTS = True
 PYTHON_VERSIONS = None
@@ -88,15 +88,6 @@ def dev(session):
     Activate it by running `source .nox/dev/bin/activate`.
     """
     session.install("-e", ".[dev]")
-
-
-@nox.session
-def lint_flake8(session):
-    """
-    Run flake8 linter.
-    """
-    session.install("-e", ".[lint_flake8]")
-    session.run("flake8", "src", "tests")
 
 
 @nox.session
