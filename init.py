@@ -47,6 +47,7 @@ def main():
     files = [
         "setup.cfg",
         "noxfile.py",
+        "CONTRIBUTING.md",
         "README.md",
         "DEVELOPMENT.md",
         "LICENSE",
