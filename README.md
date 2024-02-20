@@ -11,11 +11,17 @@
 
 ## Installation
 
+To install the project, run
+
 ```bash
 pip install .
 ```
 
+Further details, please refer to the [development instructions](DEVELOPMENT.md).
+
 ## Usage
+
+Run the following for basic usage information:
 
 ```bash
 fillname -h
