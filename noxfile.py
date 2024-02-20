@@ -2,12 +2,12 @@ import os
 
 import nox
 
-nox.options.sessions = "lint_flake8", "lint_pylint", "typecheck", "test"
+nox.options.sessions = "lint_pylint", "typecheck", "test"
 
 EDITABLE_TESTS = True
 PYTHON_VERSIONS = None
 if "GITHUB_ACTIONS" in os.environ:
-    PYTHON_VERSIONS = ["3.7", "3.11"]
+    PYTHON_VERSIONS = ["3.9", "3.11"]
     EDITABLE_TESTS = False
 
 
@@ -91,15 +91,6 @@ def dev(session):
 
 
 @nox.session
-def lint_flake8(session):
-    """
-    Run flake8 linter.
-    """
-    session.install("-e", ".[lint_flake8]")
-    session.run("flake8", "src", "tests")
-
-
-@nox.session
 def lint_pylint(session):
     """
     Run pylint.
@@ -114,7 +105,7 @@ def typecheck(session):
     Typecheck the code using mypy.
     """
     session.install("-e", ".[typecheck]")
-    session.run("mypy", "-p", "fillname", "-p", "tests")
+    session.run("mypy", "--strict", "-p", "fillname", "-p", "tests")
 
 
 @nox.session(python=PYTHON_VERSIONS)
