@@ -6,7 +6,7 @@ from .utils.logger import setup_logger
 from .utils.parser import get_parser
 
 
-def main():
+def main() -> None:
     """
     Run the main function.
     """

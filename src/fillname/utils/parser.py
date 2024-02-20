@@ -6,7 +6,7 @@ import logging
 import sys
 from argparse import ArgumentParser
 from textwrap import dedent
-from typing import Any, cast
+from typing import Any, Optional, cast
 
 __all__ = ["get_parser"]
 
@@ -39,7 +39,7 @@ def get_parser() -> ArgumentParser:
         ("debug", logging.DEBUG),
     ]
 
-    def get(levels, name):
+    def get(levels: list[tuple[str, int]], name: str) -> Optional[int]:
         for key, val in levels:
             if key == name:
                 return val

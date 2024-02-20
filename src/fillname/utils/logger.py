@@ -20,19 +20,22 @@ class SingleLevelFilter(logging.Filter):
     Filter levels.
     """
 
-    def __init__(self, passlevel, reject):
+    passlevel: int
+    reject: bool
+
+    def __init__(self, passlevel: int, reject: bool):
         # pylint: disable=super-init-not-called
         self.passlevel = passlevel
         self.reject = reject
 
-    def filter(self, record):
+    def filter(self, record: logging.LogRecord) -> bool:
         if self.reject:
             return record.levelno != self.passlevel  # nocoverage
 
         return record.levelno == self.passlevel
 
 
-def setup_logger(name, level):
+def setup_logger(name: str, level: int) -> logging.Logger:
     """
     Setup logger.
     """
@@ -42,7 +45,7 @@ def setup_logger(name, level):
     logger.setLevel(level)
     log_message_str = "{}%(levelname)s:{}  - %(message)s{}"
 
-    def set_handler(level, color):
+    def set_handler(level: int, color: str) -> None:
         handler = logging.StreamHandler(sys.stderr)
         handler.addFilter(SingleLevelFilter(level, False))
         handler.setLevel(level)
