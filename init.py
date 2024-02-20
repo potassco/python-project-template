@@ -45,14 +45,14 @@ def main():
 
     dirs = [os.path.join("src", "fillname"), "tests", "doc"]
     files = [
-        "setup.cfg",
+        ".pre-commit-config.yaml",
         "noxfile.py",
+        "pyproject.toml",
+        "setup.cfg",
         "CONTRIBUTING.md",
-        "README.md",
         "DEVELOPMENT.md",
         "LICENSE",
-        ".pre-commit-config.yaml",
-        ".coveragerc",
+        "README.md",
     ]
 
     for rootpath in dirs:

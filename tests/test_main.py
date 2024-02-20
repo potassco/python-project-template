@@ -15,18 +15,19 @@ class TestMain(TestCase):
     Test cases for main application functionality.
     """
 
-    def test_logger(self):
+    def test_logger(self) -> None:
         """
         Test the logger.
         """
         log = setup_logger("global", logging.INFO)
         sio = StringIO()
         for handler in log.handlers:
+            assert isinstance(handler, logging.StreamHandler)
             handler.setStream(sio)
         log.info("test123")
         self.assertRegex(sio.getvalue(), "test123")
 
-    def test_parser(self):
+    def test_parser(self) -> None:
         """
         Test the parser.
         """
