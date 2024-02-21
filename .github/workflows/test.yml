@@ -4,6 +4,7 @@ on:
   push:
     branches: [devel, main, master, wip]
   pull_request:
+  workflow_call:
 
 env:
   FORCE_COLOR: "3"
