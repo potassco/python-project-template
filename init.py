@@ -31,8 +31,8 @@ def main():
 
     replacements = {
         "fillname": project,
-        "<author-email>": email,
-        "<author>": author,
+        "author@fillname.com": email,
+        "Mister Fillname": author,
     }
 
     def replace(filepath):
