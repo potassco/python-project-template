@@ -7,8 +7,12 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
   deploy:
     name: deploy
+    needs: test
     permissions:
       id-token: write
     environment: release
