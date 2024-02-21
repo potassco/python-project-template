@@ -1,21 +1,15 @@
 ## Deployment
 
-To release this project on (test.)pypi.org please follow these instructions:
+Releases are deployed on [pypi] whenever a tag of form `vMajor.Minor.Revision`
+is pushed. Furthemore, the deployment workflow can be triggered manually to
+deploy test releases on [test.pypi].
 
-Long version:
-https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
-TL;DR
- - create a github environmnent (Github->Your Project->Settings->Environments) with the safety regulations you prefer, e.g. restriction
-   to a fixed set of branches like "test_release" or manual confirmation
-   This step is important to prevent other people from releasing new versions on accident
- - create a [test.]pypi.org account (enable 2fa)
- - create a project with the same name
- - add the formerly created github environment
- - run the respective CI scripts either manually (test.pypi.org) or by tagging a release version (pypi.org)
+For this to work, the workflow has to be granted permission to deploy on the
+two services. Please follow this packaging [guide] to setup your accounts
+accordingly. We also recommend to setup a github [environment] to restrict which
+contributers can deploy packages.
 
-[nox]: https://nox.thea.codes/en/stable/index.html
-[pipx]: https://pypa.github.io/pipx/
-[pre]: https://pre-commit.com/
-[editable]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html
-
-
+[pypi]: https://pypi.org/
+[test.pypi]: https://test.pypi.org/
+[guide]: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+[environment]: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment/
