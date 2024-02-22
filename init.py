@@ -60,8 +60,8 @@ def main():
     url = read("url", r".+", url)
 
     replacements = {
-        "author@fillname.com": email,
-        "Mister Fillname": author,
+        "author@fillname.org": email,
+        "Author Fillname": author,
         "https://fillname.org/": url,
         "fillname": project,
     }
