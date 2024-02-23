@@ -49,10 +49,11 @@ def configure_logging(stream: TextIO, level: int, use_color: bool) -> None:
     """
     Configure application logging.
     """
+
     def format_str(color: str) -> str:
         if use_color:
             return f"{COLORS[color]}%(levelname)s:{COLORS['GREY']}  - %(message)s{COLORS['NORMAL']}"
-        return "%(levelname)s:  - %(message)s" # nocoverage
+        return "%(levelname)s:  - %(message)s"  # nocoverage
 
     def make_handler(level: int, color: str) -> "logging.StreamHandler[TextIO]":
         handler = logging.StreamHandler(stream)
