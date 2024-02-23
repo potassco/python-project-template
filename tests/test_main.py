@@ -2,11 +2,11 @@
 Test cases for main application functionality.
 """
 
-import logging
 from io import StringIO
 from unittest import TestCase
 
-from fillname.utils.logger import setup_logger
+from fillname.utils import logging
+from fillname.utils.logging import configure_logging, get_logger
 from fillname.utils.parser import get_parser
 
 
@@ -19,11 +19,9 @@ class TestMain(TestCase):
         """
         Test the logger.
         """
-        log = setup_logger("global", logging.INFO)
         sio = StringIO()
-        for handler in log.handlers:
-            assert isinstance(handler, logging.StreamHandler)
-            handler.setStream(sio)
+        configure_logging(sio, logging.INFO, True)
+        log = get_logger("main")
         log.info("test123")
         self.assertRegex(sio.getvalue(), "test123")
 
