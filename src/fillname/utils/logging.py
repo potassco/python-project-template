@@ -45,17 +45,20 @@ class SingleLevelFilter(logging.Filter):
         return record.levelno == self.passlevel
 
 
-def configure_logging(stream: TextIO, level: int) -> None:
+def configure_logging(stream: TextIO, level: int, use_color: bool) -> None:
     """
     Configure application logging.
     """
-    log_message_str = "{}%(levelname)s:{}  - %(message)s{}"
+    def format_str(color: str) -> str:
+        if use_color:
+            return f"{COLORS[color]}%(levelname)s:{COLORS['GREY']}  - %(message)s{COLORS['NORMAL']}"
+        return "%(levelname)s:  - %(message)s" # nocoverage
 
     def make_handler(level: int, color: str) -> "logging.StreamHandler[TextIO]":
         handler = logging.StreamHandler(stream)
         handler.addFilter(SingleLevelFilter(level, False))
         handler.setLevel(level)
-        formatter = logging.Formatter(log_message_str.format(COLORS[color], COLORS["GREY"], COLORS["NORMAL"]))
+        formatter = logging.Formatter(format_str(color))
         handler.setFormatter(formatter)
         return handler
 

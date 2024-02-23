@@ -14,7 +14,7 @@ def main() -> None:
     """
     parser = get_parser()
     args = parser.parse_args()
-    configure_logging(sys.stderr, args.log)
+    configure_logging(sys.stderr, args.log, sys.stderr.isatty())
 
     log = get_logger("main")
     log.info("info")

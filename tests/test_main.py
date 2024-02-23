@@ -20,7 +20,7 @@ class TestMain(TestCase):
         Test the logger.
         """
         sio = StringIO()
-        configure_logging(sio, logging.INFO)
+        configure_logging(sio, logging.INFO, True)
         log = get_logger("main")
         log.info("test123")
         self.assertRegex(sio.getvalue(), "test123")
