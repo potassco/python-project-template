@@ -24,3 +24,12 @@ repos:
     hooks:
     - id: black
       exclude: ^.github/
+
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17
+    hooks:
+    - id: mdformat
+      args: ["--wrap", "79"]
+      exclude: ^doc/
+      additional_dependencies:
+      - mdformat-gfm
