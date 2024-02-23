@@ -28,7 +28,11 @@ jobs:
         python-version: 3.11
   
     - name: install requirements
-      run: python -m pip install nox
+      run: python -m pip install nox pre-commit
+
+    - name: run pre-commit
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: pre-commit run --all --show-diff-on-failure
 
     - name: run tests
       run: nox
