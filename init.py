@@ -37,6 +37,7 @@ def git_config_get(attr):
     except subprocess.CalledProcessError:
         return None
 
+
 def main():
     """
     Rename the project.

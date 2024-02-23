@@ -22,9 +22,10 @@ nox -s session_name
 nox -Rs session_name
 ```
 
-Note that the nox sessions create [editable] installs. In case there are issues,
-try recreating environments by dropping the `-R` option. If your project is
-incompatible with editable installs, adjust the `noxfile.py` to disable them.
+Note that the nox sessions create [editable] installs. In case there are
+issues, try recreating environments by dropping the `-R` option. If your
+project is incompatible with editable installs, adjust the `noxfile.py` to
+disable them.
 
 We also provide a [pre-commit][pre] config to autoformat code upon commits. It
 can be set up using the following commands:
@@ -34,8 +35,7 @@ python -m pipx install pre-commit
 pre-commit install
 ```
 
+[editable]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html
 [nox]: https://nox.thea.codes/en/stable/index.html
 [pipx]: https://pypa.github.io/pipx/
 [pre]: https://pre-commit.com/
-[editable]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html
-
