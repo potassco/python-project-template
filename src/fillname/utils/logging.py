@@ -1,9 +1,19 @@
 """
 Setup project wide loggers.
+
+This is a thin wrapper around Python's logging module. It supports colored
+logging.
 """
 
 import logging
 from typing import TextIO
+
+NOTSET = logging.NOTSET
+DEBUG = logging.DEBUG
+INFO = logging.INFO
+WARNING = logging.WARNING
+ERROR = logging.ERROR
+CRITICAL = logging.CRITICAL
 
 COLORS = {
     "GREY": "\033[90m",
@@ -41,7 +51,7 @@ def configure_logging(stream: TextIO, level: int) -> None:
     """
     log_message_str = "{}%(levelname)s:{}  - %(message)s{}"
 
-    def make_handler(level: int, color: str) -> logging.StreamHandler:
+    def make_handler(level: int, color: str) -> "logging.StreamHandler[TextIO]":
         handler = logging.StreamHandler(stream)
         handler.addFilter(SingleLevelFilter(level, False))
         handler.setLevel(level)
@@ -58,7 +68,7 @@ def configure_logging(stream: TextIO, level: int) -> None:
     logging.basicConfig(handlers=handlers, level=level)
 
 
-def get_logger(name):
+def get_logger(name: str) -> logging.Logger:
     """
     Get a logger with the given name.
     """

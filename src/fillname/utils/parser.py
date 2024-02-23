@@ -2,11 +2,12 @@
 The command line parser for the project.
 """
 
-import logging
 import sys
 from argparse import ArgumentParser
 from textwrap import dedent
 from typing import Any, Optional, cast
+
+from . import logging
 
 __all__ = ["get_parser"]
 
@@ -31,7 +32,6 @@ def get_parser() -> ArgumentParser:
             """
         ),
     )
-
     levels = [
         ("error", logging.ERROR),
         ("warning", logging.WARNING),
