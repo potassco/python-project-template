@@ -4,7 +4,8 @@ Thanks for considering a contribution to fillname. ❤️
 
 ## How to get help or discuss possible contributions
 
-To avoid duplicating issues, please search our [issue tracker][issues] and our [mailing list][mailing_list] before filing a new issue.
+To avoid duplicating issues, please search our [issue tracker][issues] and our
+[mailing list][mailing_list] before filing a new issue.
 
 * Open an [issue][new_issue] describing your problem.
 * [Subscribe][subscribe] to our mailing list on SourceForge.
