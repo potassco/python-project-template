@@ -3,7 +3,7 @@ Setup project wide loggers.
 """
 
 import logging
-import sys
+from typing import TextIO
 
 COLORS = {
     "GREY": "\033[90m",
@@ -35,27 +35,31 @@ class SingleLevelFilter(logging.Filter):
         return record.levelno == self.passlevel
 
 
-def setup_logger(name: str, level: int) -> logging.Logger:
+def configure_logging(stream: TextIO, level: int) -> None:
     """
-    Setup logger.
+    Configure application logging.
     """
-
-    logger = logging.getLogger(name)
-    logger.propagate = False
-    logger.setLevel(level)
     log_message_str = "{}%(levelname)s:{}  - %(message)s{}"
 
-    def set_handler(level: int, color: str) -> None:
-        handler = logging.StreamHandler(sys.stderr)
+    def make_handler(level: int, color: str) -> logging.StreamHandler:
+        handler = logging.StreamHandler(stream)
         handler.addFilter(SingleLevelFilter(level, False))
         handler.setLevel(level)
         formatter = logging.Formatter(log_message_str.format(COLORS[color], COLORS["GREY"], COLORS["NORMAL"]))
         handler.setFormatter(formatter)
-        logger.addHandler(handler)
+        return handler
 
-    set_handler(logging.INFO, "GREEN")
-    set_handler(logging.WARNING, "YELLOW")
-    set_handler(logging.DEBUG, "BLUE")
-    set_handler(logging.ERROR, "RED")
+    handlers = [
+        make_handler(logging.INFO, "GREEN"),
+        make_handler(logging.WARNING, "YELLOW"),
+        make_handler(logging.DEBUG, "BLUE"),
+        make_handler(logging.ERROR, "RED"),
+    ]
+    logging.basicConfig(handlers=handlers, level=level)
 
-    return logger
+
+def get_logger(name):
+    """
+    Get a logger with the given name.
+    """
+    return logging.getLogger(name)
