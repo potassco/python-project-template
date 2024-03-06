@@ -6,8 +6,8 @@
 > formatters, and actions are already configured and ready to use.
 >
 > To use the project template, run the `init.py` script to give the project a
-> name and some metadata. The script can then be removed and the `setup.cfg`
-> file be adjusted as needed.
+> name and some metadata. The script can then be removed and the
+> `pyproject.toml` file be adjusted as needed.
 
 ## Installation
 
