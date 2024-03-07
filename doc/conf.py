@@ -94,7 +94,7 @@ html_theme_options = {
             """,
             "class": "",
         },
-    ]
+    ],
     # Toc options
 }
 
