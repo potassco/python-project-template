@@ -17,7 +17,7 @@ dynamic = [ "version" ]
 readme = "README.md"
 
 [project.urls]
-Hompage = "https://fillname.org/"
+Homepage = "https://fillname.org/"
 
 [project.optional-dependencies]
 format = [ "black", "isort", "autoflake" ]
