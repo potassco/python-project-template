@@ -1,4 +1,4 @@
-## Deployment
+# Deployment
 
 Releases are deployed on [pypi] whenever a tag of form `vMajor.Minor.Revision`
 is pushed. Furthemore, the deployment workflow can be triggered manually to
