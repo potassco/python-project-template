@@ -1,4 +1,4 @@
-## Development
+# Development
 
 To improve code quality, we use [nox] to run linters, type checkers, unit
 tests, documentation and more. We recommend installing nox using [pipx] to have
