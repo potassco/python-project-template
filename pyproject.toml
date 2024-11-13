@@ -1,31 +1,26 @@
 [build-system]
-requires = [
-    "setuptools",
-    "setuptools-scm",
-]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fillname"
-authors = [
-    { name = "Author Fillname", email = "author@fillname.org" }
-]
+authors = [{ name = "Author Fillname", email = "author@fillname.org" }]
 description = "A template project."
 requires-python = ">=3.9"
-license = {file = "LICENSE"}
-dynamic = [ "version" ]
+license = { file = "LICENSE" }
+dynamic = ["version"]
 readme = "README.md"
 
 [project.urls]
 Homepage = "https://fillname.org/"
 
 [project.optional-dependencies]
-format = [ "black", "isort", "autoflake" ]
-lint_pylint = [ "pylint" ]
-typecheck = [ "types-setuptools", "mypy" ]
-test = [ "coverage[toml]" ]
-doc = [ "sphinx", "furo", "nbsphinx", "sphinx_copybutton", "myst-parser" ]
-dev = [ "fillname[test,typecheck,lint_pylint]" ]
+format = ["black", "isort", "autoflake"]
+lint_pylint = ["pylint"]
+typecheck = ["types-setuptools", "mypy"]
+test = ["coverage[toml]"]
+doc = ["sphinx", "furo", "nbsphinx", "sphinx_copybutton", "myst-parser", "toml"]
+dev = ["fillname[test,typecheck,lint_pylint]"]
 
 [project.scripts]
 fillname = "fillname.__main__:main"
