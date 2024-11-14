@@ -36,7 +36,7 @@ release = metadata.version("fillname")
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones. Make sure that custom extensions are listed in the doc field of
-# [options.extras_require] in project.toml")) so they are available when building
+# [options.extras_require] in project.toml so they are available when building
 # the documentation.
 
 extensions = [
