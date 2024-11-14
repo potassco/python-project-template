@@ -25,8 +25,7 @@ Run the following for basic usage information:
 fillname -h
 ```
 
-For detailed information on the project one can compile and open the
-documentation
+To generate and open the documentation, run
 
 ```bash
 nox -s doc -- open
