@@ -24,3 +24,12 @@ Run the following for basic usage information:
 ```bash
 fillname -h
 ```
+
+To generate and open the documentation, run
+
+```bash
+nox -s doc -- open
+```
+
+Instructions to install and use `nox` can be found in
+[DEVELOPMENT.md](./DEVELOPMENT.md)
