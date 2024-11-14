@@ -3,7 +3,7 @@ The command line parser for the project.
 """
 
 from argparse import ArgumentParser
-from importlib import metadata  # nocoverage
+from importlib import metadata
 from textwrap import dedent
 from typing import Any, Optional, cast
 
