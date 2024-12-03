@@ -21,27 +21,10 @@ def doc(session):
     - clean: clean up the build folder
     - <target> <options>: build the given <target> with the given <options>
     """
-    target = "html"
-    options = []
-    open_doc = "open" in session.posargs
-    clean = "clean" in session.posargs
-
-    if open_doc:
-        session.posargs.remove("open")
-    if clean:
-        session.posargs.remove("clean")
-
-    if session.posargs:
-        target = session.posargs[0]
-        options = session.posargs[1:]
 
     session.install("-e", ".[doc]")
-    session.cd("doc")
-    if clean:
-        session.run("rm", "-rf", "_build")
-    session.run("sphinx-build", "-M", target, ".", "_build", *options)
-    if open_doc:
-        session.run("open", "_build/html/index.html")
+    session.run("open", "http://127.0.0.1:8000/systems/fillname/")
+    session.run("mkdocs", "serve")
 
 
 @nox.session
