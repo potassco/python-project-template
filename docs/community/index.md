@@ -26,7 +26,4 @@ Your participation keeps our project thriving. Thank you for being part of our
 community!
 
 !!! info
-
-```
-*fillanme* is part of the [Potassco] suit (which is the home of *clingo* and the other ASP tools)
-```
+    *fillname* is part of the [Potassco](https://potassco.org) suite.

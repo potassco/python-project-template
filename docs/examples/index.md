@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Examples
 
 Welcome to the **Examples** section of our documentation! 🎉
