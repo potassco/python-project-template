@@ -99,6 +99,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths: [src]
           import:
             - https://docs.python.org/3/objects.inv
           options:
@@ -109,6 +110,8 @@ plugins:
             show_inherited_detail: true
             show_inherited_detail_toc: true
             show_inherited_detail_tree: true
+            show_signature_annotations: true
+            signature_crossrefs: true
             show_source: false
 
 nav:
