@@ -75,11 +75,13 @@ def main():
         with open(filepath, "w", encoding="utf-8") as hnd:
             hnd.write(content)
 
-    dirs = [os.path.join("src", "fillname"), "tests", "doc"]
+    dirs = [os.path.join("src", "fillname"), "tests", "docs"]
     files = [
         ".pre-commit-config.yaml",
+        "mkdocs.yml",
         "noxfile.py",
         "pyproject.toml",
+        "CHANGES.md",
         "CONTRIBUTING.md",
         "DEPLOYMENT.md",
         "DEVELOPMENT.md",
