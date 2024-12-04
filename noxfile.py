@@ -1,4 +1,5 @@
 import os
+import sys
 
 import nox
 
@@ -17,14 +18,23 @@ def doc(session):
     Build the documentation.
 
     Accepts the following arguments:
-    - open: open documentation after build
-    - clean: clean up the build folder
-    - <target> <options>: build the given <target> with the given <options>
+    - serve: open documentation after build
+    - further arguments are passed to mkbuild
     """
 
+    options = session.posargs[:]
+    open_doc = "serve" in options
+    if open_doc:
+        options.remove("serve")
+
     session.install("-e", ".[doc]")
-    session.run("open", "http://127.0.0.1:8000/systems/fillname/")
-    session.run("mkdocs", "serve")
+
+    if open_doc:
+        open_cmd = "xdg-open" if sys.platform == "linux" else "open"
+        session.run(open_cmd, "http://localhost:8000/systems/fillname/")
+        session.run("mkdocs", "serve", *options)
+    else:
+        session.run("mkdocs", "build", *options)
 
 
 @nox.session
