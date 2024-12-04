@@ -65,6 +65,7 @@ extra:
     - icon: potassco-logo
       link: https://potassco.org
   generator: false
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -109,3 +110,20 @@ plugins:
             show_inherited_detail_toc: true
             show_inherited_detail_tree: true
             show_source: false
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Examples: examples/index.md
+  - Reference:
+    - reference/index.md
+    - Problem: reference/problem/index.md
+    - Encodings: reference/encodings/index.md
+    - API: reference/api/index.md
+  - Community:
+    - community/index.md
+    - Help: community/help.md
+    - Changes: community/CHANGES.md
+    - Contributing: community/CONTRIBUTING.md
+    - Development: community/DEVELOPMENT.md
+    - Deployment: community/DEPLOYMENT.md

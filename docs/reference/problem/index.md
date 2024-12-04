@@ -1,5 +1,5 @@
-______________________________________________________________________
-
-## icon: material/head-dots-horizontal
+---
+icon: material/head-dots-horizontal
+---
 
 # Problem specification

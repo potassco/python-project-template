@@ -1,5 +1,5 @@
-______________________________________________________________________
-
-## icon: material/file-code
+---
+icon: material/file-code
+---
 
 # Encodings

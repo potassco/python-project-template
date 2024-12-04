@@ -34,3 +34,4 @@ build
 .coverage
 _build
 _autosummary
+site
