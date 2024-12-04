@@ -30,6 +30,6 @@ repos:
     hooks:
     - id: mdformat
       args: ["--wrap", "79"]
-      exclude: ^doc/
+      exclude: ^docs/
       additional_dependencies:
       - mdformat-gfm
