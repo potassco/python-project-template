@@ -28,7 +28,7 @@ fillname -h
 To generate and open the documentation, run
 
 ```bash
-nox -s doc -- open
+nox -s doc -- serve
 ```
 
 Instructions to install and use `nox` can be found in

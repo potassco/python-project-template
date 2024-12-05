@@ -1,0 +1,30 @@
+:root {
+    --md-primary-fg-color: #6495ED;
+}
+
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+    --md-primary-fg-color: #253758;
+}
+
+.md-grid {
+    max-width: 1350px;
+}
+
+.md-header__title {
+    font-size: 1.2rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin-left: 0 !important;
+}
+
+.md-header__button.md-logo {
+    /* margin-left: 30; */
+    padding-bottom: 0.8rem;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}

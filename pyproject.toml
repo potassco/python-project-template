@@ -19,7 +19,7 @@ format = ["black", "isort", "autoflake"]
 lint_pylint = ["pylint"]
 typecheck = ["types-setuptools", "mypy"]
 test = ["coverage[toml]"]
-doc = ["sphinx", "furo", "nbsphinx", "sphinx_copybutton", "myst-parser", "toml"]
+doc = ["mkdocs", "mkdocs-material", "mkdocstrings[python]"]
 dev = ["fillname[test,typecheck,lint_pylint]"]
 
 [project.scripts]
