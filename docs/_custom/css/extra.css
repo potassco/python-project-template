@@ -2,6 +2,11 @@
     --md-primary-fg-color: #6495ED;
 }
 
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+    --md-primary-fg-color: #253758;
+}
+
 .md-grid {
     max-width: 1350px;
 }
