@@ -1,19 +1,18 @@
 ---
-hide:
-  - navigation
+icon: "material/wrench"
 ---
 
 # Getting started
 
 ## Installation
 
-=== "Pip"
+### Using `pip`
 
 ```console
 pip install fillname
 ```
 
-=== "Development mode"
+### Development mode
 
 ```console
 git clone https://github.com/potassco/fillname.git/
@@ -23,13 +22,3 @@ pip install -e .[all]
 
 !!! warning
     Use only for development purposes
-
-## Usage
-
-### Command line interface
-
-Details about the command line usage can be found with:
-
-```console
-fillname -h
-```

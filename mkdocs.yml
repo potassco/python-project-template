@@ -115,18 +115,19 @@ plugins:
             show_source: false
 
 nav:
-  - Home: index.md
-  - Getting Started: getting_started.md
+  - Getting Started:
+      - Installation: installation.md
+      - Usage: usage.md
   - Examples: examples/index.md
   - Reference:
-    - reference/index.md
-    - Problem: reference/problem/index.md
-    - Encodings: reference/encodings/index.md
-    - API: reference/api/index.md
+      - reference/index.md
+      - Problem: reference/problem/index.md
+      - Encodings: reference/encodings/index.md
+      - API: reference/api/index.md
   - Community:
-    - community/index.md
-    - Help: community/help.md
-    - Changes: community/CHANGES.md
-    - Contributing: community/CONTRIBUTING.md
-    - Development: community/DEVELOPMENT.md
-    - Deployment: community/DEPLOYMENT.md
+      - community/index.md
+      - Help: community/help.md
+      - Changes: community/CHANGES.md
+      - Contributing: community/CONTRIBUTING.md
+      - Development: community/DEVELOPMENT.md
+      - Deployment: community/DEPLOYMENT.md
