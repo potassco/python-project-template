@@ -12,19 +12,6 @@ if "GITHUB_ACTIONS" in os.environ:
 
 
 @nox.session
-def doc(session):
-    """
-    Build the documentation.
-
-    Accepts the following arguments:
-    - serve: open documentation after build
-    - further arguments are passed to mkbuild
-    """
-
-    session.error("Not longer supported, use `mkdocs serve` instead")
-
-
-@nox.session
 def dev(session):
     """
     Create a development environment in editable mode.
