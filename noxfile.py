@@ -1,5 +1,4 @@
 import os
-import sys
 
 import nox
 
@@ -22,19 +21,7 @@ def doc(session):
     - further arguments are passed to mkbuild
     """
 
-    options = session.posargs[:]
-    open_doc = "serve" in options
-    if open_doc:
-        options.remove("serve")
-
-    session.install("-e", ".[doc]")
-
-    if open_doc:
-        open_cmd = "xdg-open" if sys.platform == "linux" else "open"
-        session.run(open_cmd, "http://localhost:8000/systems/fillname/")
-        session.run("mkdocs", "serve", *options)
-    else:
-        session.run("mkdocs", "build", *options)
+    session.error("Not longer supported, use `mkdocs serve` instead")
 
 
 @nox.session

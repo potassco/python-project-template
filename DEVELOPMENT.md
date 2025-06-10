@@ -1,8 +1,8 @@
 # Development
 
 To improve code quality, we use [nox] to run linters, type checkers, unit
-tests, documentation and more. We recommend installing nox using [pipx] to have
-it available globally.
+tests, and more. We recommend installing nox using [pipx] to have it available
+globally.
 
 ```bash
 # install
@@ -33,6 +33,22 @@ can be set up using the following commands:
 ```bash
 python -m pipx install pre-commit
 pre-commit install
+```
+
+## Documentation
+
+Make sure the documentation dependencies for the project are properly installed
+with
+
+```bash
+pip install .[doc]
+```
+
+To run the documentation locally use the following command and click the
+provided link to open it in the browser.
+
+```bash
+mkdocs serve
 ```
 
 [editable]: https://setuptools.pypa.io/en/latest/userguide/development_mode.html
