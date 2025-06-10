@@ -1,5 +1,4 @@
 import os
-import sys
 
 import nox
 
@@ -10,31 +9,6 @@ PYTHON_VERSIONS = None
 if "GITHUB_ACTIONS" in os.environ:
     PYTHON_VERSIONS = ["3.9", "3.11"]
     EDITABLE_TESTS = False
-
-
-@nox.session
-def doc(session):
-    """
-    Build the documentation.
-
-    Accepts the following arguments:
-    - serve: open documentation after build
-    - further arguments are passed to mkbuild
-    """
-
-    options = session.posargs[:]
-    open_doc = "serve" in options
-    if open_doc:
-        options.remove("serve")
-
-    session.install("-e", ".[doc]")
-
-    if open_doc:
-        open_cmd = "xdg-open" if sys.platform == "linux" else "open"
-        session.run(open_cmd, "http://localhost:8000/systems/fillname/")
-        session.run("mkdocs", "serve", *options)
-    else:
-        session.run("mkdocs", "build", *options)
 
 
 @nox.session
