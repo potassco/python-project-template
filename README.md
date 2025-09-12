@@ -31,8 +31,10 @@ To generate and open the documentation, run
 mkdocs serve -o
 ```
 
-Make sure the dependencies for \[doc\] have been installed using
-`pip install .[doc]`
+Make sure to install the optional documentation dependencies via
+```bash
+pip install .[doc]
+```
 
 Instructions to install and use `nox` can be found in
 [DEVELOPMENT.md](./DEVELOPMENT.md)
