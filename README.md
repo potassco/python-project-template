@@ -32,6 +32,7 @@ mkdocs serve -o
 ```
 
 Make sure to install the optional documentation dependencies via
+
 ```bash
 pip install .[doc]
 ```
