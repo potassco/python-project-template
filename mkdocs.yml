@@ -1,5 +1,5 @@
 site_name: fillname
-site_url: https://potassco.org/systems/fillname
+site_url: https://potassco.org/fillname
 site_description:
 repo_name: potassco/fillname
 repo_url: https://github.com/potassco/fillname
@@ -100,33 +100,32 @@ plugins:
       handlers:
         python:
           paths: [src]
-          import:
+          inventories:
             - https://docs.python.org/3/objects.inv
           options:
             show_symbol_type_heading: true
             show_symbol_type_toc: true
-            # show_root_toc_entry: false
-            # show_inherited_summary: true
-            show_inherited_detail: true
-            show_inherited_detail_toc: true
-            show_inherited_detail_tree: true
             show_signature_annotations: true
-            signature_crossrefs: true
             show_source: false
+            extra:
+              signature_cross_references: true
+              show_inherited_detail: true
+              show_inherited_detail_toc: true
+              show_inherited_detail_tree: true
 
 nav:
   - Home: index.md
   - Getting Started: getting_started.md
   - Examples: examples/index.md
   - Reference:
-    - reference/index.md
-    - Problem: reference/problem/index.md
-    - Encodings: reference/encodings/index.md
-    - API: reference/api/index.md
+      - reference/index.md
+      - Problem: reference/problem/index.md
+      - Encodings: reference/encodings/index.md
+      - API: reference/api/index.md
   - Community:
-    - community/index.md
-    - Help: community/help.md
-    - Changes: community/CHANGES.md
-    - Contributing: community/CONTRIBUTING.md
-    - Development: community/DEVELOPMENT.md
-    - Deployment: community/DEPLOYMENT.md
+      - community/index.md
+      - Help: community/help.md
+      - Changes: community/CHANGES.md
+      - Contributing: community/CONTRIBUTING.md
+      - Development: community/DEVELOPMENT.md
+      - Deployment: community/DEPLOYMENT.md

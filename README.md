@@ -28,8 +28,11 @@ fillname -h
 To generate and open the documentation, run
 
 ```bash
-nox -s doc -- serve
+mkdocs serve -o
 ```
+
+Make sure the dependencies for \[doc\] have been installed using
+`pip install .[doc]`
 
 Instructions to install and use `nox` can be found in
 [DEVELOPMENT.md](./DEVELOPMENT.md)
