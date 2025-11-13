@@ -10,6 +10,7 @@ requires-python = ">=3.9"
 license = { file = "LICENSE" }
 dynamic = ["version"]
 readme = "README.md"
+dependencies = ["clingo>=5.6.0"]
 
 [project.urls]
 Homepage = "https://fillname.org/"

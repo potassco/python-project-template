@@ -25,6 +25,16 @@ COLORS = {
 }
 
 
+def colored(color: str, s: str) -> str:
+    """
+    Returns the string colored by the given color.
+
+    Args:
+        color (str): A color name: GREY, BLUE, GREEN, YELLOW, RED
+    """
+    return f"{COLORS[color.upper()]}{s}{COLORS['NORMAL']}"
+
+
 class SingleLevelFilter(logging.Filter):
     """
     Filter levels.
