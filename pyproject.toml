@@ -20,7 +20,8 @@ lint_pylint = ["pylint"]
 typecheck = ["types-setuptools", "mypy"]
 test = ["coverage[toml]"]
 doc = ["mkdocs", "mkdocs-material", "mkdocstrings[python]", "mkdoclingo"]
-dev = ["fillname[test,typecheck,lint_pylint]"]
+lsp = ["python-lsp-server", "rope", "pylsp-mypy", "pylsp-rope", "python-lsp-black"]
+dev = ["fillname[test,typecheck,lint_pylint,lsp]"]
 
 [project.scripts]
 fillname = "fillname.__main__:main"
