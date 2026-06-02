@@ -1,5 +1,11 @@
 # Development
 
+To install the project in development mode, use the following command:
+
+```bash
+pip install -e .
+```
+
 To improve code quality, we use [nox] to run linters, type checkers, unit
 tests, and more. We recommend installing nox using [pipx] to have it available
 globally.

@@ -1,9 +1,29 @@
-[data-md-color-scheme="default"] {
-    --md-primary-fg-color: #4378dc;
-    --md-primary-fg-color--light: #4378dc;
-    --md-primary-fg-color--dark: #4378dc;
+/* ============================================================
+   Brand colors
+   ============================================================ */
 
-    /* Code colors – light background */
+:root {
+    --md-primary-fg-color: #6495ED;
+}
+
+[data-md-color-scheme="default"] .md-header,
+[data-md-color-scheme="default"] .md-tabs,
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+    --md-primary-fg-color: #2E3360;
+}
+
+[data-md-color-scheme="default"] .md-nav--primary .md-nav__title,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
+    background-color: #2E3360;
+}
+
+
+/* ============================================================
+   Code highlight colors
+   ============================================================ */
+
+[data-md-color-scheme="default"] {
     --md-code-hl-number-color: hsl(11, 80%, 40%);
     --md-code-hl-special-color: hsl(340, 75%, 45%);
     --md-code-hl-function-color: hsl(271, 55%, 45%);
@@ -19,11 +39,6 @@
 }
 
 [data-md-color-scheme="slate"] {
-    --md-typeset-a-color: #4378dc;
-    --md-primary-fg-color: #253758;
-    --md-primary-fg-color--dark: #253758;
-
-    /* Code colors – dark background */
     --md-code-hl-number-color: hsl(11, 85%, 68%);
     --md-code-hl-special-color: hsl(340, 82%, 72%);
     --md-code-hl-function-color: hsl(271, 70%, 78%);
@@ -39,9 +54,18 @@
 }
 
 
+/* ============================================================
+   Layout
+   ============================================================ */
+
 .md-grid {
     max-width: 1350px;
 }
+
+
+/* ============================================================
+   Header
+   ============================================================ */
 
 .md-header__title {
     font-size: 1.2rem;
@@ -51,7 +75,6 @@
 }
 
 .md-header__button.md-logo {
-    /* margin-left: 30; */
     padding-bottom: 0.8rem;
 }
 
@@ -59,4 +82,84 @@
 .md-header__button.md-logo svg {
     height: 1.5rem;
     width: 1.5rem;
+}
+
+
+/* ============================================================
+   Admonitions
+   ============================================================ */
+
+.md-typeset .admonition,
+.md-typeset details {
+    border-width: 0;
+    border-left-width: 3px;
+}
+
+/* info / note / abstract / tip — primary color */
+.md-typeset .info>.admonition-title,
+.md-typeset .info>summary,
+.md-typeset .note>.admonition-title,
+.md-typeset .note>summary,
+.md-typeset .abstract>.admonition-title,
+.md-typeset .abstract>summary,
+.md-typeset .tip>.admonition-title,
+.md-typeset .tip>summary {
+    border-color: var(--md-primary-fg-color);
+    background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent);
+}
+
+.md-typeset .admonition.info,
+.md-typeset details.info,
+.md-typeset .admonition.note,
+.md-typeset details.note,
+.md-typeset .admonition.abstract,
+.md-typeset details.abstract,
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+    border-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .info>.admonition-title::before,
+.md-typeset .info>summary::before,
+.md-typeset .note>.admonition-title::before,
+.md-typeset .note>summary::before,
+.md-typeset .abstract>.admonition-title::before,
+.md-typeset .abstract>summary::before,
+.md-typeset .tip>.admonition-title::before,
+.md-typeset .tip>summary::before {
+    background-color: var(--md-primary-fg-color);
+}
+
+/* question — yellow */
+.md-typeset .question>.admonition-title,
+.md-typeset .question>summary {
+    border-color: #A8AD00;
+    background-color: color-mix(in srgb, #A8AD00 10%, transparent);
+}
+
+.md-typeset .admonition.question,
+.md-typeset details.question {
+    border-color: #A8AD00;
+}
+
+.md-typeset .question>.admonition-title::before,
+.md-typeset .question>summary::before {
+    background-color: #A8AD00;
+}
+
+/* success — green */
+.md-typeset .success>.admonition-title,
+.md-typeset .success>summary {
+    border-color: #2E7D32;
+    background-color: color-mix(in srgb, #2E7D32 10%, transparent);
+}
+
+.md-typeset .admonition.success,
+.md-typeset details.success {
+    border-color: #2E7D32;
+}
+
+.md-typeset .success>.admonition-title::before,
+.md-typeset .success>summary::before {
+    background-color: #2E7D32;
 }

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for considering a contribution to fillname. ❤️
+Thanks for considering a contribution to fillname.
 
 ## How to get help or discuss possible contributions
 
@@ -16,7 +16,7 @@ To avoid duplicating issues, please search our [issue tracker][issues] and our
   changes.
 - Submit a pull request to the master branch with your changes.
 - Respond to feedback on your pull request.
-- If everything is fine your pull request is merged. 🥳
+- If everything is fine your pull request is merged!
 
 ## License
 
