@@ -1,9 +1,10 @@
 site_name: fillname
-site_url: https://potassco.org/fillname
+site_url: https://potassco.org/fillname/docs
 site_description:
 repo_name: potassco/fillname
 repo_url: https://github.com/potassco/fillname
 copyright: Copyright &copy; 2024 Potassco
+site_dir: site/docs
 
 extra_css:
   - _custom/css/extra.css
