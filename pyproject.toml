@@ -27,7 +27,7 @@ doc = [
     "mkdocs-literate-nav",
     "pygments_clingo",
 ]
-dev = ["pre[test,typecheck,lint]"]
+dev = ["fillname[test,typecheck,lint]"]
 
 [project.scripts]
 fillname = "fillname.__main__:main"
