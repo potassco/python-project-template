@@ -8,7 +8,7 @@ import re
 import subprocess
 
 
-def read(prompt, regex, default):
+def read(prompt: str, regex: str, default: str | None) -> str:
     """
     Read a string from command line.
 
@@ -28,7 +28,7 @@ def read(prompt, regex, default):
         print(f"the project name has to match the regular expression: {regex}")
 
 
-def git_config_get(attr):
+def git_config_get(attr: str) -> str | None:
     """
     Get a git config value.
     """
@@ -38,11 +38,10 @@ def git_config_get(attr):
         return None
 
 
-def main():
+def main() -> None:
     """
     Rename the project.
     """
-
     author = git_config_get("user.name")
     email = git_config_get("user.email")
     origin = git_config_get("remote.origin.url")
@@ -60,14 +59,17 @@ def main():
     email = read("email", r".+", email)
     url = read("url", r".+", url)
 
-    replacements = {
+    replacements: dict[str, str] = {
         "author@fillname.org": email,
         "Author Fillname": author,
         "https://fillname.org/": url,
         "fillname": project,
     }
 
-    def replace(filepath):
+    def replace(filepath: str) -> None:
+        """
+        Apply replacements to the given file.
+        """
         with open(filepath, "r", encoding="utf-8") as hnd:
             content = hnd.read()
             for key, val in replacements.items():

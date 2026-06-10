@@ -33,12 +33,18 @@ class SingleLevelFilter(logging.Filter):
     passlevel: int
     reject: bool
 
-    def __init__(self, passlevel: int, reject: bool):
+    def __init__(self, passlevel: int, reject: bool) -> None:
+        """
+        Initialize the filter.
+        """
         # pylint: disable=super-init-not-called
         self.passlevel = passlevel
         self.reject = reject
 
     def filter(self, record: logging.LogRecord) -> bool:
+        """
+        Apply custom filter for records.
+        """
         if self.reject:
             return record.levelno != self.passlevel  # nocoverage
 
@@ -62,6 +68,9 @@ def configure_logging(stream: TextIO, level: int, use_color: bool) -> None:
         formatter = logging.Formatter(format_str(color))
         handler.setFormatter(formatter)
         return handler
+
+    for h in logging.root.handlers[:]:
+        logging.root.removeHandler(h)
 
     handlers = [
         make_handler(logging.INFO, "GREEN"),
