@@ -3,7 +3,7 @@
 To install the project in development mode, use the following command:
 
 ```bash
-pip install -e .
+pip install -e .[dev]
 ```
 
 To improve code quality, we use [nox] to run linters, type checkers, unit
