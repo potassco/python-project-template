@@ -1,29 +1,9 @@
-/* ============================================================
-   Brand colors
-   ============================================================ */
-
-:root {
-    --md-primary-fg-color: #6495ED;
-}
-
-[data-md-color-scheme="default"] .md-header,
-[data-md-color-scheme="default"] .md-tabs,
-[data-md-color-scheme="slate"] .md-header,
-[data-md-color-scheme="slate"] .md-tabs {
-    --md-primary-fg-color: #2E3360;
-}
-
-[data-md-color-scheme="default"] .md-nav--primary .md-nav__title,
-[data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
-    background-color: #2E3360;
-}
-
-
-/* ============================================================
-   Code highlight colors
-   ============================================================ */
-
 [data-md-color-scheme="default"] {
+    --md-primary-fg-color: #4378dc;
+    --md-primary-fg-color--light: #4378dc;
+    --md-primary-fg-color--dark: #4378dc;
+
+    /* Code colors – light background */
     --md-code-hl-number-color: hsl(11, 80%, 40%);
     --md-code-hl-special-color: hsl(340, 75%, 45%);
     --md-code-hl-function-color: hsl(271, 55%, 45%);
@@ -39,6 +19,11 @@
 }
 
 [data-md-color-scheme="slate"] {
+    --md-typeset-a-color: #4378dc;
+    --md-primary-fg-color: #253758;
+    --md-primary-fg-color--dark: #253758;
+
+    /* Code colors – dark background */
     --md-code-hl-number-color: hsl(11, 85%, 68%);
     --md-code-hl-special-color: hsl(340, 82%, 72%);
     --md-code-hl-function-color: hsl(271, 70%, 78%);
@@ -52,11 +37,6 @@
     --md-code-hl-generic-color: hsl(210, 15%, 62%);
     --md-code-hl-variable-color: hsl(24, 80%, 68%);
 }
-
-
-/* ============================================================
-   Layout
-   ============================================================ */
 
 .md-grid {
     max-width: 1350px;
