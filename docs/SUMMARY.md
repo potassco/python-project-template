@@ -10,6 +10,7 @@
 * Examples
     * [Examples](examples/index.md)
 * Community
+    * [Community](community/index.md)
     * [Contributing](community/CONTRIBUTING.md)
     * [Changes](community/CHANGES.md)
     * [Development](community/DEVELOPMENT.md)

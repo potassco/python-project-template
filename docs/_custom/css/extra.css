@@ -19,6 +19,22 @@
 }
 
 
+[data-md-color-scheme="default"] {
+    --md-footer-bg-color: #00000005;
+    --md-footer-bg-color--dark: #00000005;
+    --md-footer-fg-color--lighter: #000000;
+    --md-footer-fg-color--light: #000000;
+    /* --md-footer-fg-color: #000000; */
+}
+
+
+[data-md-color-scheme="slate"] {
+    --md-footer-bg-color: #00000060;
+    --md-footer-bg-color--dark: #00000060;
+    --md-footer-fg-color--lighter: #FFFFFF;
+    --md-footer-fg-color--light: #FFFFFF90;
+}
+
 /* ============================================================
    Code highlight colors
    ============================================================ */
@@ -150,16 +166,16 @@
 /* success — green */
 .md-typeset .success>.admonition-title,
 .md-typeset .success>summary {
-    border-color: #2E7D32;
-    background-color: color-mix(in srgb, #2E7D32 10%, transparent);
+    border-color: #A8AD00;
+    background-color: color-mix(in srgb, #A8AD00 10%, transparent);
 }
 
 .md-typeset .admonition.success,
 .md-typeset details.success {
-    border-color: #2E7D32;
+    border-color: #A8AD00;
 }
 
 .md-typeset .success>.admonition-title::before,
 .md-typeset .success>summary::before {
-    background-color: #2E7D32;
+    background-color: #A8AD00;
 }
