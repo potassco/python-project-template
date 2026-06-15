@@ -4,7 +4,8 @@ icon: "material/wrench"
 
 # Installation
 
-Install via pip:
+The *fillname* system is available in [PyPI](https://pypi.org/project/fillname/).
+Install it using pip by running the following command in your terminal:
 
 ```console
 pip install fillname
