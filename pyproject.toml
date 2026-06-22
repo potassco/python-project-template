@@ -18,8 +18,16 @@ Homepage = "https://fillname.org/"
 lint = ["ruff"]
 typecheck = ["pytest", "ty"]
 test = ["pytest", "pytest-cov", "coverage[toml]"]
-doc = ["mkdocs", "mkdocs-material", "mkdocstrings[python]", "mkdoclingo"]
-dev = ["pre[test,typecheck,lint]"]
+doc = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings>=1.0.4",
+    "mkdocstrings-python>=2.0",
+    "clindocs>=1.5.1",
+    "mkdocs-literate-nav",
+    "pygments_clingo",
+]
+dev = ["fillname[test,typecheck,lint]"]
 
 [project.scripts]
 fillname = "fillname.__main__:main"

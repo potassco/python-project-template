@@ -1,6 +1,20 @@
+---
+hide:
+  - toc
+---
+
 # Community
 
-Welcome to the **Community** hub! 🚀
+
+!!! success "Potassco Community"
+    *fillname* is part of the open source systems developed by:
+    <!-- Potassco technologies logo -->
+    <p align="left">
+      <a href="https://potassco.org">
+        <img src="../assets/images/pt_rgb_green_digital.svg" alt="Logo" width="200" class="logo" />
+      </a>
+    </p>
+
 
 This is the central place for everything related to contributing, staying
 up-to-date, and engaging with our project. Whether you’re here to collaborate,
@@ -14,16 +28,3 @@ explore the latest changes, or find support, we’ve got you covered.
 - **Development:** Dive into the technical details of how our system works.
 - **Deployment:** Get guidance on setting up and deploying the system in
   various environments.
-- **Help:** Access resources to get answers to your questions.
-
-## How You Can Contribute
-
-1. **Report Issues:** Found a bug? Let us know!
-1. **Share Ideas:** Help us shape the future by suggesting features.
-1. **Collaborate:** Submit pull requests and contribute code.
-
-Your participation keeps our project thriving. Thank you for being part of our
-community!
-
-!!! info
-    *fillname* is part of the [Potassco](https://potassco.org) suite.

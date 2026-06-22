@@ -18,8 +18,9 @@ new tag. To enable this:
 - Navigate to **Settings** > **Pages**.
 - Under **Build and deployment**, set **Source** to **GitHub Actions**.
 
-This setup ensures your documentation is updated and available online whenever
-you create a new release tag via Github workflows.
+This setup ensures your documentation is updated whenever you create a new
+release tag via GitHub workflows. The final documentation will be made
+available at `https://potassco.org/fillname/docs`.
 
 [environment]: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment/
 [guide]: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/

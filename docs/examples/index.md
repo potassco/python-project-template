@@ -5,7 +5,7 @@ hide:
 
 # Examples
 
-Welcome to the **Examples** section of our documentation! 🎉
+Welcome to the **Examples** section of our documentation!
 
 Here, you'll find a comprehensive set of practical examples designed to help
 you get the most out of our system. Whether you're a first-time user or an
