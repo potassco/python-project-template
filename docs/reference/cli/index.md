@@ -4,8 +4,8 @@ icon: material/code-greater-than
 
 # CLI
 
-You can access all of fillname's features over the command-line interface (CLI).
-This page details all available features and how to use them.
+You can access all of fillname's features via the command-line interface (CLI).
+This page details the available commands and usage, while the --help option provides command documentation.
 
 ## CLI Specification
 
