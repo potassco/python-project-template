@@ -12,7 +12,11 @@ dynamic = ["version"]
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://fillname.org/"
+Homepage = "https://github.com/potassco/fillname.git/"
+Documentation = "https://docs.potassco.org/fillname/"
+Repository = "https://github.com/potassco/fillname"
+Issues = "https://github.com/potassco/fillname/issues"
+Changelog = "https://github.com/potassco/fillname/blob/master/CHANGES.md"
 
 [project.optional-dependencies]
 lint = ["ruff"]
